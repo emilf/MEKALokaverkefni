@@ -77,6 +77,11 @@ void waitUntilKeyUp(void);
 void hwSetup(void);
 
 // hwControl.c
+#define SBIT_PS2  2
+#define SBIT_T2CKPS1  1
+void __interrupt() timer_isr(void);
+void SetInterrupt(int);
+
 struct sensorStruct {
    short conveyor1sensor1;
    short conveyor1sensor2;

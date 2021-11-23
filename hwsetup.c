@@ -25,10 +25,14 @@ void hwSetup() {
 
 	TRISA = 0xFF;       // Skilgreinir alla pinna á port A sem innganga
 	TRISB = 0x00;       // Skilgreinir alla pinna á port B sem útganga
-	TRISC = 0xFF;       // Skilgreinir alla pinna á port C sem útganga
+	TRISC = 0x00;       // Skilgreinir alla pinna á port C sem útganga
 	TRISD = 0x0F;       // RD0 ? RD3 eru  inngangar á PIC 
                         // RD4 ? RD7 eru útgangar á PIC
 	TRISE = 0x00;       // Skilgreinir alla pinna á port E sem útganga
+    
+    TMR0IE=0;       // Disable timer interrupt bit in PIE1 register
+    GIE=0;          // Disable Global Interrupt
+    PEIE=0;         // Disable the Peripheral Interrupt
 
 	lcd_init();				  		// uppsetning fyrir LCD skjá
 

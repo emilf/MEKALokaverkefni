@@ -81,7 +81,7 @@ void runAutomaticControl() {
                 while(sensors.button == 1) { // and for it to be released
                     sensors = ReadSensors();
                 } 
-                curAutoState = RunConv1;
+                curAutoState = PositionConv2StartPos;
                 __delay_ms(300);
                 break;
             case PositionConv2StartPos:
@@ -135,6 +135,7 @@ void runAutomaticControl() {
                 lcd_out(1,1,"Waiting for");
                 lcd_out(2,1,"conv 2 sensor");
                 WaitForSensor(conveyor2sensor);
+                ControlConveyor(2,1);
                 curAutoState = PositionConv2FeedPos;
                 __delay_ms(300);
                 break;
@@ -153,13 +154,13 @@ void runAutomaticControl() {
                 lcd_out(1,1,"Run conveyor 2");
                 lcd_out(2,1,"Continue");
                 if (cubeData[curCube-1] == 1) {
-                    ControlConveyor(4,0);
+                    ControlConveyor(2,0);
                     curAutoState = NextCube;
                     __delay_ms(300);
                     break;
                 }
                 else if (cubeData[curCube-1] == 3) {
-                    ControlConveyor(2,0);
+                    ControlConveyor(4,0);
                     curAutoState = RunConv3;
                     __delay_ms(300);
                     break;

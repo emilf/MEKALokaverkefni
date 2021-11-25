@@ -174,6 +174,7 @@ void __interrupt() timer_isr()
             PORTC = 0;
             
             SetInterrupt(0); // Disable timer interrupt
+            while(1);
         }
         else
         {

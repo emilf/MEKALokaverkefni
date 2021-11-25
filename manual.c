@@ -10,8 +10,8 @@ PIC16F887
 #include "common.h" // Common definition and includes needed everywhere
 
 void drawManual(){
-    lcd_out(1, 1, "Manual          ");
-    lcd_out(2, 1, "Press D for menu");
+    lcd_out(1, 1, "Number keys turn");
+    lcd_out(2, 1, "on pins   D=Menu");
 }
 
 void handleManualKeypress(){
@@ -25,28 +25,28 @@ void handleManualKeypress(){
             waitUntilKeyUp();
             handleStateChange(Menu);
             break;
-        case 1:
+        case 0:
             PortC_Utg_0 = 1;
             break;
-        case 2:
+        case 1:
             PortC_Utg_1 = 1;
             break;
-        case 3:
+        case 2:
             PortC_Utg_2 = 1;
             break;
-        case 4:
+        case 3:
             PortC_Utg_3 = 1;
             break;
-        case 5:
+        case 4:
             PortC_Utg_4 = 1;
             break;
-        case 6:
+        case 5:
             PortC_Utg_5 = 1;
             break;
-        case 7:
+        case 6:
             PortC_Utg_6 = 1;
             break;
-        case 8:
+        case 7:
             PortC_Utg_7 = 1;
             break;            
         default:

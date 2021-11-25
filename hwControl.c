@@ -156,7 +156,7 @@ void SetInterrupt(int value){
 }
 
 
-
+// https://exploreembedded.com/wiki/PIC16f877a_Timer
 void __interrupt() timer_isr()
 {   
     if(TMR2IF==1)

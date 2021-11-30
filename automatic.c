@@ -156,19 +156,18 @@ void runAutomaticControl() {
                 if (cubeData[curCube-1] == 1) {
                     ControlConveyor(2,0);
                     curAutoState = NextCube;
-                    __delay_ms(300);
+                    __delay_ms(1000);
                     break;
                 }
                 else if (cubeData[curCube-1] == 3) {
                     ControlConveyor(4,0);
                     curAutoState = RunConv3;
-                    __delay_ms(300);
                     break;
                 }
                 // If destination is 2
                 ControlConveyor(2,0);
+                __delay_ms(1000);
                 curAutoState = NextCube;
-                __delay_ms(300);
                 break;
             case RunConv3:
                 lcd_clear();
@@ -183,9 +182,10 @@ void runAutomaticControl() {
                 lcd_out(2,1,"conv 3 sensor");
                 WaitForSensor(conveyor3sensor);
                 curAutoState = NextCube;
-                __delay_ms(300);
+                __delay_ms(2000);
                 break;
             case NextCube:
+                ControlConveyor(5,0);
                 curCube++;
                 if (curCube == 5) {
                     curAutoState = End;

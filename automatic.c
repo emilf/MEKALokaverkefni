@@ -156,7 +156,7 @@ void runAutomaticControl() {
                 if (cubeData[curCube-1] == 1) {
                     ControlConveyor(2,0);
                     curAutoState = NextCube;
-                    __delay_ms(1000);
+                    __delay_ms(1200);
                     break;
                 }
                 else if (cubeData[curCube-1] == 3) {
@@ -166,7 +166,7 @@ void runAutomaticControl() {
                 }
                 // If destination is 2
                 ControlConveyor(2,0);
-                __delay_ms(1000);
+                __delay_ms(1200);
                 curAutoState = NextCube;
                 break;
             case RunConv3:

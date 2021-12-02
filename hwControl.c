@@ -87,8 +87,9 @@ struct sensorStruct ReadSensors() {
 
 
 void FeedCube() {
-    // Do nothing (yet)
-    return;
+    RE0 = 1;  // Send a signal to feeder
+    __delay_ms(300); // Wait long enough for it to notice
+    RE0 = 0; // Turn the signal off
 }
 
 void WaitForSensor(enum sensorEnum sensor) {

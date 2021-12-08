@@ -48,9 +48,13 @@ void handleManualKeypress(){
             break;
         case 7:
             PortC_Utg_7 = 1;
-            break;            
+            break;
+        case 0xA:
+            RE0 = 1; // This is the only output that is not on PORTC
+            break;
         default:
             PORTC = 0; // Turn off all outputs if no key or invalid key is pressed
+            RE0 = 0;   // Turn off the single output on PORTE we care about
     }
 }
 

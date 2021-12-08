@@ -21,8 +21,5 @@ void main()             // Aðalforrit byrjar
         // The menu keyhandler always runs to allow abort in manual mode
         runCurrentState();
         __delay_ms(50); // We don't have to check as fast as possible. Lets save some power
-	}								// while (1) lykkja endar
-}									// main() endar
-
-
-
+	}					// while (1) lykkja endar
+}						// main() endar

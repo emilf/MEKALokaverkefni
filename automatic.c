@@ -103,10 +103,10 @@ void runAutomaticControl() {
                 lcd_clear();
                 lcd_out(1,1,"Feed cube");
                 FeedCube();
-                curAutoState = WaitForSensorConv1Sensor1;
+                curAutoState = WaitForSensorConv1Sensor2; // We jump over this because this sensor is unreliable
                 __delay_ms(300);
                 break;
-            case WaitForSensorConv1Sensor1:
+            case WaitForSensorConv1Sensor1: // DISABLED, unreliable sensor
                 lcd_clear();
                 lcd_out(1,1,"Waiting for");
                 lcd_out(2,1,"conv 1 sensor 1");
@@ -156,7 +156,7 @@ void runAutomaticControl() {
                 if (cubeData[curCube-1] == 1) {
                     ControlConveyor(2,0);
                     curAutoState = NextCube;
-                    __delay_ms(1200);
+                    __delay_ms(2000);
                     break;
                 }
                 else if (cubeData[curCube-1] == 3) {
@@ -166,7 +166,7 @@ void runAutomaticControl() {
                 }
                 // If destination is 2
                 ControlConveyor(2,0);
-                __delay_ms(1200);
+                __delay_ms(2000);
                 curAutoState = NextCube;
                 break;
             case RunConv3:

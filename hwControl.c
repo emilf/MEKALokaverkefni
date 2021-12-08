@@ -166,7 +166,7 @@ void __interrupt() timer_isr()
                           Timer2 needs two instruction Cycles to start incrementing TMR2 */
         TMR2IF=0;       // Clear timer interrupt flag
 
-        if(intCount>=3500) //1500us * 3500=525000us=5sec
+        if(intCount>=7000) //1500us * 7000= ca 10 sec
         {
             intCount=0;
             lcd_clear();
